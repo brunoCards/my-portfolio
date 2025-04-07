@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
 import HeroImage from '../../../public/images/hero.png';
 import { PiBagSimple, PiMapPinSimple } from 'react-icons/pi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -20,7 +23,7 @@ export function Hero() {
         </div>
 
         <div className='flex items-start justify-center gap-4'>
-          <a
+          <Link
             href='https://www.linkedin.com/in/-bruno-cardoso-/'
             className='flex flex-row items-center gap-x-3 rounded-md border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
           >
@@ -28,9 +31,9 @@ export function Hero() {
               <FaLinkedin className='text-base text-blue-400' />
               Connect on LinkedIn
             </span>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href='https://github.com/brunoCards'
             className='flex flex-row items-center gap-x-3 rounded-md border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
           >
@@ -38,14 +41,14 @@ export function Hero() {
               <FaGithub className='text-base' />
               Github
             </span>
-          </a>
+          </Link>
         </div>
       </div>
 
       <Image
         src={HeroImage}
         alt='Bruno Cardoso com uma doguinha'
-        className='w-full min-w-52 min-h-36 max-w-52 max-h-36 object-contain'
+        className='max-h-52 min-h-52 w-full object-contain'
         priority
       />
 
@@ -53,7 +56,7 @@ export function Hero() {
         Hi, I am <span className='text-primary'>Bruno</span>
       </p>
 
-      <a
+      <Link
         href='https://www.linkedin.com/in/-bruno-cardoso-/'
         className='flex flex-row items-center gap-x-3 rounded-md border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
       >
@@ -62,7 +65,7 @@ export function Hero() {
           <span className='relative inline-flex h-2 w-2 rounded-full bg-primary'></span>
         </span>
         <p className='font-medium'>Open to work</p>
-      </a>
+      </Link>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import { Hero } from './components/ui/hero';
 import { Navbar } from './components/ui/navbar';
 
@@ -14,11 +16,14 @@ import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { AiOutlineDotNet } from 'react-icons/ai';
 import { DiMsqlServer, DiPostgresql } from 'react-icons/di';
-import { FaRegFilePdf } from 'react-icons/fa';
+import { Footer } from './components/ui/footer';
+import { useTheme } from 'next-themes';
 
 export default function Home() {
+  const { resolvedTheme } = useTheme();
+
   return (
-    <div className='w-full flex flex-col items-center gap-16 py-8 px-[10vw] md:px-[20vw] xl:px-[30vw] xl:gap-32'>
+    <div className='w-full flex flex-col items-center gap-40 py-8 px-[10vw] md:px-[20vw] xl:px-[30vw] xl:gap-32'>
       <Navbar />
 
       <main className='w-full flex flex-col gap-20'>
@@ -56,7 +61,11 @@ export default function Home() {
               <FaJs className='text-yellow-400' />
               <FaSass className='text-pink-400' />
               <FaReact className='text-blue-400' />
-              <RiNextjsFill className='text-black' />
+              <RiNextjsFill
+                className={
+                  resolvedTheme === 'light' ? 'text-black' : 'text-white'
+                }
+              />
               <RiTailwindCssFill className='text-blue-400' />
             </div>
 
@@ -68,6 +77,12 @@ export default function Home() {
               <TbBrandCSharp className='text-purple-500' />
               <DiMsqlServer className='text-red-400' />
               <DiPostgresql className='text-blue-400' />
+            </div>
+
+            <span className='p-2 rounded-md text-sm font-bold flex justify-center bg-black'>
+              Devops
+            </span>
+            <div className='p-4 text-6xl flex gap-3 flex-wrap border border-dashed rounded-md border-gray-600'>
               <FaDocker className='text-blue-400' />
               <FaAws className='text-black' />
             </div>
@@ -168,18 +183,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className='w-full my-6 flex justify-center items-center'>
-        <a
-          href=''
-          className='flex flex-row items-center gap-x-3 rounded-md border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
-        >
-          <span className='relative flex items-center justify-center'>
-            <FaRegFilePdf className='absolute inline-flex animate-ping border text-red-500 opacity-75' />
-            <FaRegFilePdf className='relative inline-flex text-red-500' />
-          </span>
-          <span className='font-bold'>Download Resume</span>
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
