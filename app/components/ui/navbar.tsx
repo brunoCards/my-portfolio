@@ -12,6 +12,7 @@ import { useTheme } from 'next-themes';
 
 export function Navbar() {
   const [mounted, setMounted] = useState(false);
+  const [isOnTop, setIsOnTop] = useState(false);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
@@ -24,16 +25,39 @@ export function Navbar() {
     ? LightLogo
     : DarkLogo;
 
+  const logoSize = isOnTop
+    ? 'min-w-16 min-h-12 w-full h-full object-contain '
+    : 'min-w-8 min-h-6 w-full h-full object-contain ';
+
+  useEffect(() => {
+    const ac = new AbortController();
+    const { signal } = ac;
+
+    const handleLogoSize = () => {
+      if (window.scrollY > 1) {
+        setIsOnTop(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleLogoSize, { signal });
+    return () => {
+      ac.abort();
+    };
+  }, []);
+
+  console.log('isOnTop', isOnTop);
+  console.log('logoSize', logoSize);
+
   return (
-    <header className='w-full'>
-      <nav className='w-full flex items-center justify-between'>
+    <header className='w-full h-32 px-[10vw] fixed z-10 bg-background flex items-center border border-b-primary shadow shadow-4xl'>
+      <nav className='w-full flex items-center justify-between relative'>
         <div className='w-full flex items-center '>
           <Link href='/'>
             <Image
               src={currentLogo}
               alt='Bruno Cardoso Dev'
               priority
-              className='min-w-16 min-h-12 object-contain'
+              className={logoSize}
             />
           </Link>
         </div>

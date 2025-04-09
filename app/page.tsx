@@ -1,8 +1,6 @@
 'use client';
 
-import { Hero } from './components/ui/hero';
-import { Navbar } from './components/ui/navbar';
-
+import { useTheme } from 'next-themes';
 import {
   FaCss3,
   FaHtml5,
@@ -16,17 +14,19 @@ import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { AiOutlineDotNet } from 'react-icons/ai';
 import { DiMsqlServer, DiPostgresql } from 'react-icons/di';
+
+import { Hero } from './components/ui/hero';
+import { Navbar } from './components/ui/navbar';
 import { Footer } from './components/ui/footer';
-import { useTheme } from 'next-themes';
 
 export default function Home() {
   const { resolvedTheme } = useTheme();
 
   return (
-    <div className='w-full flex flex-col items-center gap-40 py-8 px-[10vw] md:px-[20vw] xl:px-[30vw] xl:gap-32'>
+    <div className='w-full flex flex-col items-center gap-40 px-[10vw] md:px-[20vw] xl:px-[30vw] xl:gap-32'>
       <Navbar />
 
-      <main className='w-full flex flex-col gap-20'>
+      <main className='w-full flex flex-col gap-20 pt-[25vh]'>
         <Hero />
 
         <section className='p-4 flex gap-3 rounded-md'>
@@ -79,12 +79,12 @@ export default function Home() {
               <DiPostgresql className='text-blue-400' />
             </div>
 
-            <span className='p-2 rounded-md text-sm font-bold flex justify-center bg-black'>
+            <span className='p-2 rounded-md text-sm font-bold flex justify-center bg-blue-700'>
               Devops
             </span>
-            <div className='p-4 text-6xl flex gap-3 flex-wrap border border-dashed rounded-md border-gray-600'>
+            <div className='p-4 text-6xl flex gap-3 flex-wrap border border-dashed rounded-md border-blue-700'>
               <FaDocker className='text-blue-400' />
-              <FaAws className='text-black' />
+              <FaAws className='text-white' />
             </div>
           </div>
         </section>

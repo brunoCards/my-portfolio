@@ -21,7 +21,7 @@ export function Footer() {
       </div>
 
       <div className='w-full py-8 flex flex-col gap-8 border-t border-input justify-center items-center'>
-        <span>© 2025 Bruno da Cruz Cardoso. All rights reserved.</span>
+        <span>© 2025 Bruno Cardoso. All rights reserved.</span>
 
         <div className='flex gap-4 text-lg'>
           <Link
