@@ -84,7 +84,11 @@ export default function Home() {
             </span>
             <div className='p-4 text-6xl flex gap-3 flex-wrap border border-dashed rounded-md border-blue-700'>
               <FaDocker className='text-blue-400' />
-              <FaAws className='text-white' />
+              <FaAws
+                className={
+                  resolvedTheme === 'light' ? 'text-black' : 'text-white'
+                }
+              />
             </div>
           </div>
         </section>
