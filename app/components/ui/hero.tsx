@@ -5,6 +5,7 @@ import Link from 'next/link';
 import HeroImage from '../../../public/images/hero.png';
 import { PiBagSimple, PiMapPinSimple } from 'react-icons/pi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { TextGenerate } from './TextGenerate';
 
 export function Hero() {
   return (
@@ -52,9 +53,7 @@ export function Hero() {
         priority
       />
 
-      <p className='text-center text-xl font-bold'>
-        Hi, I am <span className='text-primary'>Bruno</span>
-      </p>
+      <TextGenerate />
 
       <Link
         href='https://www.linkedin.com/in/-bruno-cardoso-/'
